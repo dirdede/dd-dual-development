@@ -12,7 +12,9 @@ function renderView(view) {
   if (view === "shared") renderShared();
   if (view === "timeline") renderTimeline();
   if (view === "checkin") renderCheckins();
+  if (view === "case") renderCaseStudy();
 }
+
 
 function renderHome() {
   app.innerHTML = `
@@ -74,3 +76,37 @@ function renderCheckins() {
 }
 
 renderView("home");
+
+function renderCaseStudy() {
+  let goalsHTML = caseStudy.goals.map(g => `
+    <div class="card">
+      <h3>${g.title}</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width:${g.progress}%"></div>
+      </div>
+      <p><strong>Progress:</strong> ${g.progress}%</p>
+      <p><em>${g.reflection}</em></p>
+    </div>
+  `).join("");
+
+  app.innerHTML = `
+    <div class="card">
+      <h2>Case Study: ${caseStudy.couple}</h2>
+      <p><strong>Core Challenge:</strong> ${caseStudy.challenge}</p>
+      <p><strong>Key Insight:</strong> ${caseStudy.insight}</p>
+      <p><strong>Outcome:</strong> ${caseStudy.outcome}</p>
+    </div>
+
+    <h2>Shared Goals in Practice</h2>
+    ${goalsHTML}
+
+    <div class="card">
+      <h3>Why D&D Helped</h3>
+      <ul>
+        <li>Clear structure during emotional moments</li>
+        <li>Async reflection reduced reactivity</li>
+        <li>Progress felt visible but non-judgmental</li>
+      </ul>
+    </div>
+  `;
+}

@@ -40,3 +40,22 @@ const checkins = [
     appreciation: "Thank you for listening"
   }
 ];
+
+const caseStudy = {
+  couple: "A & B (Long-distance, 1 year)",
+  challenge: "Miscommunication during stress and time zone gaps",
+  goals: [
+    {
+      title: "Weekly emotional check-in",
+      progress: 75,
+      reflection: "Consistency helped reduce assumptions"
+    },
+    {
+      title: "Non-defensive listening",
+      progress: 50,
+      reflection: "Still hard, but awareness increased"
+    }
+  ],
+  insight: "Structure reduced emotional guesswork",
+  outcome: "Fewer conflicts, more intentional conversations"
+};
